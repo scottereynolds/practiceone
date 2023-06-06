@@ -51,9 +51,11 @@ class SearchController extends AbstractController
 	        }
 	        foreach ($searchtextresults as $textrslt) {
 	        	$found = false;
-	        	foreach ($searchtagresults as $tagrslt) {
+	        	foreach ($searchtagresults as $index => $tagrslt) {
 	        		if ($textrslt["id"] == $tagrslt["id"]) {
 	        			$found = true;
+	        			$searchresults[$index]["ranking"]++;
+	        			$searchresults[$index]["tag_list"] .= ",\"".$search->getSearchtext()."\"";
 	        			break;
 	        		}
 	        	}
@@ -61,6 +63,9 @@ class SearchController extends AbstractController
 	        		$searchresults[] = $textrslt;
 	        	}
 	        }
+	        usort($searchresults, function($first, $second){
+			    return $first["ranking"] < $second["ranking"];
+			});
 		}
 
 		return $this->render('search/index.html.twig', [
