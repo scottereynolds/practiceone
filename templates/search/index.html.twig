@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block title %}Business Search{% endblock %}
+{% block body %}
+<div class="container-fluid">
+	<div class="row my-2">
+		<div class="col-12">
+			<h4>Search Business</h4>
+		</div>
+	</div>
+	{{ form_start(form) }}
+	<div class="row my-2">
+		<div class="col-12">
+			{{ form_label(form.searchtext) }}
+			{{ form_widget(form.searchtext) }}
+			<small>{{ form_help(form.searchtext) }}</small>
+		</div>
+	</div>
+	<div class="row my-2">
+		<div class="col-12">
+			{{ form_label(form.tags) }}
+			{{ form_widget(form.tags) }}
+			<small>{{ form_help(form.tags) }}</small>
+		</div>
+	</div>
+    <div class="row my-2">
+        <div class="col-12 text-end">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+    </div>
+	{{ form_end(form) }}
+	<div class="row my-2">
+		<div class="col-12">
+			{% if searchresults is not null %}
+				{% for result in searchresults %}
+					<div class="card my-2">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-12">
+									<h6><a href="/business/{{ result.id }}">{{ result.name }}</a></h6><br>
+									{{ result.address }}<br>
+									{{ result.city }}, {{ result.state }} {{ result.postalcode }}<br>
+									Matches {{ result.ranking }} of the tags searched.<br>
+									<span class="fst-italic">{{ result.tag_list }}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

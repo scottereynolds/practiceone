@@ -1,0 +1,58 @@
+{{ form_start(form) }}
+<div class="container-fluid">
+    <div class="row my-2">
+        <div class="col-12">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+            <small>{{ form_help(form.name) }}</small>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            {{ form_label(form.address) }}
+            {{ form_widget(form.address) }}
+            <small>{{ form_help(form.address) }}</small>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            {{ form_label(form.city) }}
+            {{ form_widget(form.city) }}
+            <small>{{ form_help(form.city) }}</small>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            {{ form_label(form.state) }}
+            {{ form_widget(form.state) }}
+            <small>{{ form_help(form.state) }}</small>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            {{ form_label(form.postalcode) }}
+            {{ form_widget(form.postalcode) }}
+            <small>{{ form_help(form.postalcode) }}</small>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+            <small>{{ form_help(form.description) }}</small>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            {{ form_label(form.tags) }}
+            {{ form_widget(form.tags) }}
+            <small>{{ form_help(form.tags) }}</small>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12 text-end">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

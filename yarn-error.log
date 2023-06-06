@@ -1,0 +1,46 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Jon\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Python27\;C:\Python27\Scripts;C:\Python310\Scripts\;C:\Python310\;C:\wamp64\bin\php\php8.1.0;C:\wamp64\bin\php\php7.4.26;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\wamp64\bin\symfony;C:\ProgramData\ComposerSetup\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\Go\bin;C:\wamp64\bin\php\php8.1.13;C:\Program Files\Git\cmd;C:\Users\Jon\scoop\shims;C:\Users\Jon\AppData\Local\Microsoft\WindowsApps;C:\Users\Jon\AppData\Roaming\Composer\vendor\bin;C:\Users\Jon\AppData\Roaming\npm;C:\Users\Jon\.dotnet\tools;C:\Users\Jon\AppData\Local\Programs\Microsoft VS Code\bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.17.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:109:26)
+
+npm manifest: 
+  {
+      "devDependencies": {
+          "@babel/core": "^7.17.0",
+          "@babel/preset-env": "^7.16.0",
+          "@symfony/webpack-encore": "^4.0.0",
+          "core-js": "^3.23.0",
+          "regenerator-runtime": "^0.13.9",
+          "webpack": "^5.74.0",
+          "webpack-cli": "^4.10.0",
+          "webpack-notifier": "^1.15.0"
+      },
+      "license": "UNLICENSED",
+      "private": true,
+      "scripts": {
+          "dev-server": "encore dev-server",
+          "dev": "encore dev",
+          "watch": "encore dev --watch",
+          "build": "encore production --progress"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row border-bottom border-dark">
+                <div class="col-2 bg-secondary">
+                    <div class="container-fluid">
+                        <div class="row my-4">
+                            <div class="col-12 text-white text-center"><h1>SER</h1></div>
+                        </div>
+                        <div class="row my-4">
+                            <a class="menulink" href="{{ url('app_default') }}">Home</a><br>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <a class="menulink" href="{{ url('app_business_index') }}">Businesses</a><br>
+                                <a class="menulink" href="{{ url('app_tag_index') }}">Tags</a><br>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a class="menulink" href="{{ url('app_user_index') }}">Users</a><br>
+                                {% endif %}
+                                <a class="menulink" href="{{ url('app_search_index') }}">Search Businesses</a><br>
+                                <a class="menulink" href="{{ url('app_logout') }}">Logout</a>
+                            {% else %}
+                                <a class="menulink" href="{{ url('app_login') }}">Login</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 my-4">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    &copy; 2023*<br>
+                    * just kidding, no copyright. just for fun... Scott Reynolds
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

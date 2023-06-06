@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tag{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row my-2">
+            <div class="col-6">
+                <h1>Tag</h1>
+            </div>
+            <div class="col-6 text-end">
+                <a class="btn btn-primary" href="{{ path('app_tag_edit', {'id': tag.id}) }}">Edit</a>
+                <a class="btn btn-secondary" href="{{ path('app_tag_index') }}">Back to list</a>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-12">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ tag.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ tag.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Created</th>
+                            <td>{{ tag.created ? tag.created|date('Y-m-d H:i:s') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Modified</th>
+                            <td>{{ tag.modified ? tag.modified|date('Y-m-d H:i:s') : '' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-end">
+            {{ include('tag/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
